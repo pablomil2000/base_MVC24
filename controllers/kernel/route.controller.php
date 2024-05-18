@@ -26,7 +26,6 @@ class RouteCtrl
   public function whitelist(...$routeValid)
   {
 
-
     if (isset($_GET['url'])) {
       $url = explode("/", $_GET["url"]);
     } else {

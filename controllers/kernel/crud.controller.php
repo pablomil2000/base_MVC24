@@ -17,4 +17,10 @@ class CrudController
     return $crudModel->getAll();
   }
 
+  public function getBy($data)
+  {
+    $crudModel = new CrudModel($this->table, $this->mode);
+    return $crudModel->getBy($data);
+  }
+
 }

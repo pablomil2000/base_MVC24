@@ -5,7 +5,14 @@ class ValidateCtrl
 
   public function vltString($string)
   {
-    return preg_match('/^[a-zA-Z0-9\s]+$/', $string);
+
+    // validate strings allowed characters a-z, A-Z, 0-9, space, underscore, dash, dot, comma, :'
+
+    if (preg_match('/^[a-zA-Z0-9\s_.,:\'-]+$/', $string)) {
+      return $string;
+    }
+
+    return false;
   }
 
   public function vltEmail($email)
@@ -20,12 +27,20 @@ class ValidateCtrl
 
   public function vltDate($date)
   {
-    return preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $date);
+    if (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $date)) {
+      return $date;
+    }
+    return false;
   }
 
   public function vltNumber($number)
   {
-    return preg_match('/^[0-9]+$/', $number);
+    if ($number != '') {
+      if (preg_match('/^[0-9]+$/', $number)) {
+        return $number;
+      }
+    }
+    return 0;
   }
 
   public function vltPhone($phone)
